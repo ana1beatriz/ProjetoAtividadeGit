@@ -12,5 +12,6 @@ package model;
 public class ClasseAnaEliza {
     public static void main(String[] args) {
         System.out.println("Ana Eliza Feitoza");
+        System.out.println("Ana Beatriz da Silva");
     }
 }
