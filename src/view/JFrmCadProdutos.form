@@ -4,12 +4,8 @@
   <NonVisualComponents>
     <Component class="javax.persistence.EntityManager" name="entityManager">
       <Properties>
-        <Property name="persistenceUnit" type="java.lang.String" value="papelaria?zeroDateTimeBehavior=convertToNullPU"/>
+        <Property name="persistenceUnit" type="java.lang.String" value="pu"/>
       </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_VariableLocal" type="java.lang.Boolean" value="false"/>
-        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="2"/>
-      </AuxValues>
     </Component>
     <Component class="javax.persistence.Query" name="query">
       <Properties>
@@ -52,35 +48,38 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
-              <Component id="newButton" linkSize="1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="deleteButton" linkSize="1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="refreshButton" linkSize="1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="saveButton" linkSize="1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-          </Group>
           <Group type="102" attributes="0">
-              <EmptySpace min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="idProdutosLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="nomeLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="quantidadeEmEstoqueLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="newButton" linkSize="1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="deleteButton" linkSize="1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="refreshButton" linkSize="1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="saveButton" linkSize="1" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="idProdutosLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="nomeLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="quantidadeEmEstoqueLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="idProdutosField" alignment="0" pref="315" max="32767" attributes="0"/>
+                                  <Component id="nomeField" alignment="0" pref="315" max="32767" attributes="0"/>
+                                  <Component id="quantidadeEmEstoqueField" alignment="0" pref="315" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Component id="masterScrollPane" pref="380" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
               </Group>
-              <EmptySpace min="-2" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="idProdutosField" alignment="0" pref="315" max="32767" attributes="0"/>
-                  <Component id="nomeField" alignment="0" pref="315" max="32767" attributes="0"/>
-                  <Component id="quantidadeEmEstoqueField" alignment="0" pref="315" max="32767" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" attributes="0">
-              <EmptySpace min="-2" max="-2" attributes="0"/>
-              <Component id="masterScrollPane" pref="380" max="32767" attributes="0"/>
-              <EmptySpace min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

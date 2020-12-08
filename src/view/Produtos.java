@@ -40,9 +40,10 @@ public class Produtos implements Serializable {
     @Basic(optional = false)
     @Column(name = "idProdutos")
     private Integer idProdutos;
+   
     @Column(name = "nome")
     private String nome;
-    @Column(name = "quantidade em estoque")
+        
     private String quantidadeEmEstoque;
     
     @OneToMany (mappedBy = "produto" )

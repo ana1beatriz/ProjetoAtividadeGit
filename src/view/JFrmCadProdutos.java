@@ -36,7 +36,7 @@ public class JFrmCadProdutos extends JPanel {
     private void initComponents() {
         bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
-        entityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("papelaria?zeroDateTimeBehavior=convertToNullPU").createEntityManager();
+        entityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("ProjetoFinalDisciplinaPU").createEntityManager();
         query = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT p FROM Produtos p");
         list = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : org.jdesktop.observablecollections.ObservableCollections.observableList(query.getResultList());
         masterScrollPane = new javax.swing.JScrollPane();
@@ -112,30 +112,30 @@ public class JFrmCadProdutos extends JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(newButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(deleteButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(refreshButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(saveButton)
-                .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(idProdutosLabel)
-                    .addComponent(nomeLabel)
-                    .addComponent(quantidadeEmEstoqueLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(idProdutosField, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)
-                    .addComponent(nomeField, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)
-                    .addComponent(quantidadeEmEstoqueField, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE))
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(masterScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(newButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(deleteButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(refreshButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(saveButton))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(idProdutosLabel)
+                                    .addComponent(nomeLabel)
+                                    .addComponent(quantidadeEmEstoqueLabel))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(idProdutosField, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)
+                                    .addComponent(nomeField, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)
+                                    .addComponent(quantidadeEmEstoqueField, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)))
+                            .addComponent(masterScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE))))
                 .addContainerGap())
         );
 

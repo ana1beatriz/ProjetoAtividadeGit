@@ -46,8 +46,6 @@ public class Vendas implements Serializable {
     @Basic(optional = false)
     @Column(name = "idvendas")
     private Integer idvendas;
-    @Basic(optional = false)
-    @Column(name = "Produtos_idProdutos")
     
     @ManyToOne
     private Clientes cliente;
