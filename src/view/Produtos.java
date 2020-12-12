@@ -28,7 +28,6 @@ import javax.persistence.Transient;
  */
 @Entity
 @Table(name = "produtos", catalog = "papelaria", schema = "")
-
 public class Produtos implements Serializable {
 
     @Transient
@@ -40,14 +39,16 @@ public class Produtos implements Serializable {
     @Basic(optional = false)
     @Column(name = "idProdutos")
     private Integer idProdutos;
-   
     @Column(name = "nome")
     private String nome;
-        
+   
+    @Column(name = "quantidadeEmEstoque")
     private String quantidadeEmEstoque;
     
-    @OneToMany (mappedBy = "produto" )
+    @OneToMany (mappedBy = "produto")
     private List<Vendas> vendas = new ArrayList<>();
+
+   
 
     public List<Vendas> getVendas() {
         return vendas;
@@ -84,6 +85,7 @@ public class Produtos implements Serializable {
         changeSupport.firePropertyChange("nome", oldNome, nome);
     }
 
+
     public String getQuantidadeEmEstoque() {
         return quantidadeEmEstoque;
     }
@@ -91,7 +93,7 @@ public class Produtos implements Serializable {
     public void setQuantidadeEmEstoque(String quantidadeEmEstoque) {
         String oldQuantidadeEmEstoque = this.quantidadeEmEstoque;
         this.quantidadeEmEstoque = quantidadeEmEstoque;
-        changeSupport.firePropertyChange("quantidadeEmEstoque", oldQuantidadeEmEstoque, quantidadeEmEstoque);
+        changeSupport.firePropertyChange("quantidadeEmEstoque1", oldQuantidadeEmEstoque, quantidadeEmEstoque);
     }
 
     @Override
@@ -116,7 +118,7 @@ public class Produtos implements Serializable {
 
     @Override
     public String toString() {
-        return "view.Produtos[ idProdutos=" + idProdutos + " ]";
+        return nome;
     }
 
     public void addPropertyChangeListener(PropertyChangeListener listener) {

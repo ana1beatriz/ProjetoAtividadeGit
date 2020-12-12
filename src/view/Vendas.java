@@ -26,16 +26,7 @@ import javax.persistence.Transient;
  */
 @Entity
 @Table(name = "vendas", catalog = "papelaria", schema = "")
-
 public class Vendas implements Serializable {
-
-    public PropertyChangeSupport getChangeSupport() {
-        return changeSupport;
-    }
-
-    public void setChangeSupport(PropertyChangeSupport changeSupport) {
-        this.changeSupport = changeSupport;
-    }
 
     @Transient
     private PropertyChangeSupport changeSupport = new PropertyChangeSupport(this);
@@ -46,24 +37,36 @@ public class Vendas implements Serializable {
     @Basic(optional = false)
     @Column(name = "idvendas")
     private Integer idvendas;
+       
+    @ManyToOne
+    private Produtos produto; 
     
     @ManyToOne
     private Clientes cliente;
-    
-    @ManyToOne
-    private Produtos produto;
 
+    public Produtos getProduto() {
+        return produto;
+    }
+
+    public void setProduto(Produtos produto) {
+        this.produto = produto;
+    }
+
+    public Clientes getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Clientes cliente) {
+        this.cliente = cliente;
+    }
+
+    
+    
     public Vendas() {
     }
 
     public Vendas(Integer idvendas) {
         this.idvendas = idvendas;
-    }
-
-    public Vendas(Integer idvendas, int produtosidProdutos, int clientesIdclientes) {
-        this.idvendas = idvendas;
-        this.produto = produto;
-        this.cliente = cliente;
     }
 
     public Integer getIdvendas() {
@@ -76,23 +79,23 @@ public class Vendas implements Serializable {
         changeSupport.firePropertyChange("idvendas", oldIdvendas, idvendas);
     }
 
-    public Clientes getCliente() {
-        return cliente;
-    }
 
-    public void setCliente(Clientes cliente) {
-        this.cliente = cliente;
-    }
 
-    public Produtos getProduto() {
-        return produto;
-    }
-
-    public void setProduto(Produtos produto) {
+    public void setProdutosidProdutos(Integer produtosidProdutos) {
+        Produtos oldProduto = this.produto;
         this.produto = produto;
+        changeSupport.firePropertyChange("produto", oldProduto, produto);
     }
 
-   
+  
+
+    public void setClientesIdclientes(Integer clientesIdclientes) {
+        Clientes oldCliente = this.cliente;
+        this.cliente= cliente;
+        changeSupport.firePropertyChange("cliente", oldCliente, cliente);
+    }
+
+    
 
     @Override
     public int hashCode() {

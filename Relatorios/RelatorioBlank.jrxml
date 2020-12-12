@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="93f359cc-9bae-4552-865e-95f16d1533a6">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     clientes.`idclientes` AS idclientes,
+     clientes.`nome` AS nome,
+     clientes.`cpf` AS cpf,
+     produtos.`idProdutos` AS idProdutos,
+     produtos.`nome` AS nome,
+     produtos.`quantidadeEmEstoque` AS quantidadeEmEstoque
+FROM
+     `clientes` clientes,
+     `produtos` produtos]]>
+	</queryString>
+	<field name="idclientes" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nome" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cpf" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="idProdutos" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="quantidadeEmEstoque" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="86" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="408" height="77" uuid="497927db-e5a7-47b4-ad38-c6b258de7533"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="32" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Relatório de Clientes e Produtos]]></text>
+			</staticText>
+			<image>
+				<reportElement x="435" y="11" width="120" height="56" uuid="a93d1539-4baf-4eb3-b5fe-c284be5daa13"/>
+				<imageExpression><![CDATA["C:\\Users\\Ana Beatriz\\Downloads\\report1.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="23" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="3" width="100" height="20" uuid="d3cf4370-4a38-4518-bd89-31f419468424"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Código do cliente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="294" y="3" width="100" height="20" uuid="26643581-9c3f-4a09-a776-af025e783c7e"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Produto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="419" y="3" width="136" height="20" uuid="a14af50d-5095-40af-a398-5c59cf776689"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Quantidade em Estoque ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="126" y="3" width="100" height="20" uuid="1c73a9f0-7f7f-4032-a4cc-5ac40d547e6c"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Nome do Cliente]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="36" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="6" width="100" height="20" uuid="6197b4ce-471e-423f-a82e-5a657fc63827"/>
+				<textFieldExpression><![CDATA[$F{idclientes}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="126" y="6" width="100" height="20" uuid="664d0b0a-ec9d-4f59-8f53-c0e0b5b6d778"/>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="294" y="6" width="100" height="20" uuid="e340331f-0d67-443e-9036-909b209631d2"/>
+				<textFieldExpression><![CDATA[$F{idProdutos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="419" y="6" width="136" height="20" uuid="ee6101b8-4128-40cc-a5e0-33ba7200c247"/>
+				<textFieldExpression><![CDATA[$F{quantidadeEmEstoque}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

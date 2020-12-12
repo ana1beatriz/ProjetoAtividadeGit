@@ -16,6 +16,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
@@ -37,15 +39,21 @@ public class Clientes implements Serializable {
     @Basic(optional = false)
     @Column(name = "idclientes")
     private Integer idclientes;
-     
     @Column(name = "nome")
     private String nome;
-    
     @Column(name = "cpf")
     private String cpf;
     
-    @OneToMany (mappedBy = "cliente" )
+    @OneToMany(mappedBy = "cliente")
     private List<Vendas> vendas = new ArrayList<>();
+
+    public List<Vendas> getVendas() {
+        return vendas;
+    }
+
+    public void setVendas(List<Vendas> vendas) {
+        this.vendas = vendas;
+    }
 
     public Clientes() {
     }
@@ -79,25 +87,9 @@ public class Clientes implements Serializable {
     }
 
     public void setCpf(String cpf) {
-       String oldCpf = this.cpf;
+        String oldCpf = this.cpf;
         this.cpf = cpf;
         changeSupport.firePropertyChange("cpf", oldCpf, cpf);
-    }
-
-    public PropertyChangeSupport getChangeSupport() {
-        return changeSupport;
-    }
-
-    public void setChangeSupport(PropertyChangeSupport changeSupport) {
-        this.changeSupport = changeSupport;
-    }
-
-    public List<Vendas> getVendas() {
-        return vendas;
-    }
-
-    public void setVendas(List<Vendas> vendas) {
-        this.vendas = vendas;
     }
 
     @Override
@@ -122,7 +114,7 @@ public class Clientes implements Serializable {
 
     @Override
     public String toString() {
-        return "view.Clientes[ idclientes=" + idclientes + " ]";
+        return nome;
     }
 
     public void addPropertyChangeListener(PropertyChangeListener listener) {
