@@ -93,6 +93,8 @@ public class JFrmCadProduto extends JPanel {
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement != null}"), quantidadeEmEstoqueField, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
         bindingGroup.addBinding(binding);
 
+        quantidadeEmEstoqueField.addActionListener(formListener);
+
         saveButton.setText("Save");
         saveButton.addActionListener(formListener);
 
@@ -195,6 +197,9 @@ public class JFrmCadProduto extends JPanel {
             else if (evt.getSource() == jButton1) {
                 JFrmCadProduto.this.jButton1ActionPerformed(evt);
             }
+            else if (evt.getSource() == quantidadeEmEstoqueField) {
+                JFrmCadProduto.this.quantidadeEmEstoqueFieldActionPerformed(evt);
+            }
         }
     }// </editor-fold>//GEN-END:initComponents
 
@@ -250,6 +255,10 @@ public class JFrmCadProduto extends JPanel {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void quantidadeEmEstoqueFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quantidadeEmEstoqueFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_quantidadeEmEstoqueFieldActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
