@@ -49,7 +49,9 @@ public class Vendas implements Serializable {
     }
 
     public void setProduto(Produtos produto) {
+        Produtos oldProduto = this.produto;
         this.produto = produto;
+        changeSupport.firePropertyChange("produto", oldProduto, produto);
     }
 
     public Clientes getCliente() {
@@ -57,7 +59,9 @@ public class Vendas implements Serializable {
     }
 
     public void setCliente(Clientes cliente) {
+        Clientes oldCliente = this.cliente;
         this.cliente = cliente;
+        changeSupport.firePropertyChange("cliente", oldCliente, cliente);
     }
 
     

@@ -9,9 +9,16 @@ import java.awt.EventQueue;
 import java.beans.Beans;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.persistence.RollbackException;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -254,6 +261,13 @@ public class JFrmCadProduto extends JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+         JRBeanCollectionDataSource dados = new JRBeanCollectionDataSource(list, false);
+        try {
+            JasperPrint relatorio = JasperFillManager.fillReport("./relatorios/RelatorioBlank.jasper", null, dados);
+            JasperViewer visualizador = new JasperViewer(relatorio, false);
+        } catch (JRException ex) {
+            Logger.getLogger(JFrmCadCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void quantidadeEmEstoqueFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quantidadeEmEstoqueFieldActionPerformed

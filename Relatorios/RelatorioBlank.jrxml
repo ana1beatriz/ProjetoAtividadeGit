@@ -5,31 +5,21 @@
 	<property name="ireport.y" value="0"/>
 	<queryString>
 		<![CDATA[SELECT
-     clientes.`idclientes` AS idclientes,
-     clientes.`nome` AS nome,
+
      clientes.`cpf` AS cpf,
-     produtos.`idProdutos` AS idProdutos,
-     produtos.`nome` AS nome,
-     produtos.`quantidadeEmEstoque` AS quantidadeEmEstoque
+     clientes.`nome` AS nome,
+     produtos.`nome` AS 'produtos.nome'
 FROM
      `clientes` clientes,
      `produtos` produtos]]>
 	</queryString>
-	<field name="idclientes" class="java.lang.Integer">
+	<field name="cpf" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="nome" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="cpf" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="idProdutos" class="java.lang.Integer">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="quantidadeEmEstoque" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
+	<field name="produtos.nome" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -55,7 +45,7 @@ FROM
 				<textElement>
 					<font fontName="Arial" size="12"/>
 				</textElement>
-				<text><![CDATA[Código do cliente]]></text>
+				<text><![CDATA[Cpf]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="294" y="3" width="100" height="20" uuid="26643581-9c3f-4a09-a776-af025e783c7e"/>
@@ -65,14 +55,7 @@ FROM
 				<text><![CDATA[Produto]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="419" y="3" width="136" height="20" uuid="a14af50d-5095-40af-a398-5c59cf776689"/>
-				<textElement>
-					<font fontName="Arial" size="12"/>
-				</textElement>
-				<text><![CDATA[Quantidade em Estoque ]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="126" y="3" width="100" height="20" uuid="1c73a9f0-7f7f-4032-a4cc-5ac40d547e6c"/>
+				<reportElement x="127" y="3" width="100" height="20" uuid="1c73a9f0-7f7f-4032-a4cc-5ac40d547e6c"/>
 				<textElement>
 					<font fontName="Arial" size="12"/>
 				</textElement>
@@ -83,20 +66,16 @@ FROM
 	<detail>
 		<band height="36" splitType="Stretch">
 			<textField>
-				<reportElement x="0" y="6" width="100" height="20" uuid="6197b4ce-471e-423f-a82e-5a657fc63827"/>
-				<textFieldExpression><![CDATA[$F{idclientes}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="126" y="6" width="100" height="20" uuid="664d0b0a-ec9d-4f59-8f53-c0e0b5b6d778"/>
+				<reportElement x="127" y="0" width="100" height="20" uuid="08f17f29-48a9-476d-89f9-b3fb0c8dc9dd"/>
 				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="294" y="6" width="100" height="20" uuid="e340331f-0d67-443e-9036-909b209631d2"/>
-				<textFieldExpression><![CDATA[$F{idProdutos}]]></textFieldExpression>
+				<reportElement x="0" y="0" width="100" height="20" uuid="89f69d4a-69b7-48b3-b863-2d4f5edfad60"/>
+				<textFieldExpression><![CDATA[$F{cpf}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="419" y="6" width="136" height="20" uuid="ee6101b8-4128-40cc-a5e0-33ba7200c247"/>
-				<textFieldExpression><![CDATA[$F{quantidadeEmEstoque}]]></textFieldExpression>
+				<reportElement x="294" y="3" width="100" height="20" uuid="08dfd140-de93-4b11-9b4a-7981abc5aab3"/>
+				<textFieldExpression><![CDATA[$F{produtos.nome}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
