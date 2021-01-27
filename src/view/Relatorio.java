@@ -119,7 +119,7 @@ public class Relatorio extends javax.swing.JFrame {
         // TODO add your handling code here:
        
         Map<String, Object> parametros = new HashMap<>();
-        parametros.put("nome", "%caderno%");
+        parametros.put("nome", "%" + txt_nome.getText() + "%");
         
         JRBeanCollectionDataSource dados = new JRBeanCollectionDataSource(list, false);
         try {

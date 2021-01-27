@@ -23,8 +23,7 @@
      produtos.`quantidadeEmEstoque` AS quantidadeEmEstoque
 FROM
      `produtos` produtos
-where nome like $P{nome}
-]]>
+where nome like $P{nome}]]>
 	</queryString>
 	<field name="idProdutos" class="java.lang.Integer">
 		<fieldDescription><![CDATA[]]></fieldDescription>
@@ -40,37 +39,27 @@ where nome like $P{nome}
 	</background>
 	<title>
 		<band height="132" splitType="Stretch">
-			<image>
-				<reportElement x="456" y="0" width="99" height="132" uuid="2983beb7-dbba-48f4-9f93-dea32019cc55"/>
-				<imageExpression><![CDATA["cherry.jpg"]]></imageExpression>
-			</image>
 			<frame>
 				<reportElement mode="Opaque" x="0" y="0" width="451" height="95" backcolor="#000000" uuid="364c36be-ee6f-40ab-8f4f-8b72b073c83d"/>
 				<staticText>
 					<reportElement style="Title" x="0" y="0" width="370" height="66" uuid="891e96eb-1672-4b52-9728-ab60af0ef15a"/>
 					<textElement>
-						<font isBold="false"/>
+						<font size="44" isBold="false"/>
 					</textElement>
-					<text><![CDATA[Cherry Title]]></text>
+					<text><![CDATA[Produtos em estoque]]></text>
 				</staticText>
 				<staticText>
 					<reportElement style="SubTitle" x="157" y="66" width="249" height="29" uuid="df08ea77-b0af-4790-971a-aca6256a6d2a"/>
 					<textElement>
 						<font size="22" isBold="false"/>
 					</textElement>
-					<text><![CDATA[Cherry SubTitle]]></text>
+					<text><![CDATA[Papelaria Winners]]></text>
 				</staticText>
 			</frame>
-			<frame>
-				<reportElement mode="Opaque" x="0" y="100" width="451" height="32" forecolor="#000000" backcolor="#CC0000" uuid="e1e751fa-f791-4f6e-ba41-477e66e24cc5"/>
-				<textField pattern="EEEEE dd MMMMM yyyy">
-					<reportElement x="307" y="12" width="144" height="20" forecolor="#FFFFFF" uuid="a1b72b84-7a89-4711-9aba-b9c29b973f25"/>
-					<textElement textAlignment="Right">
-						<font size="12"/>
-					</textElement>
-					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
-				</textField>
-			</frame>
+			<image>
+				<reportElement x="406" y="0" width="400" height="95" uuid="0e595548-f8de-4d76-adaf-3e601577659e"/>
+				<imageExpression><![CDATA["C:\\Users\\Ana Beatriz\\Documents\\NetBeansProjects\\ProjetoAtividadeGitClone1\\Relatorios\\banner.jpg"]]></imageExpression>
+			</image>
 		</band>
 	</title>
 	<pageHeader>
@@ -83,21 +72,21 @@ where nome like $P{nome}
 				<textElement>
 					<font isBold="false"/>
 				</textElement>
-				<text><![CDATA[idProdutos]]></text>
+				<text><![CDATA[Código do Produto]]></text>
 			</staticText>
 			<staticText>
 				<reportElement style="Column header" x="185" y="7" width="185" height="18" forecolor="#000000" uuid="4328b37d-69c2-4c26-8c11-41c8b4c45dce"/>
 				<textElement>
 					<font isBold="false"/>
 				</textElement>
-				<text><![CDATA[nome]]></text>
+				<text><![CDATA[Produto]]></text>
 			</staticText>
 			<staticText>
 				<reportElement style="Column header" x="370" y="7" width="185" height="18" forecolor="#000000" uuid="e8ab6505-527f-4e3d-8e2d-243140a41978"/>
 				<textElement>
 					<font isBold="false"/>
 				</textElement>
-				<text><![CDATA[quantidadeEmEstoque]]></text>
+				<text><![CDATA[Quantidade em estoque ]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
