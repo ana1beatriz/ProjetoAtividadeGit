@@ -39,6 +39,9 @@ public class Vendas implements Serializable {
     @Basic(optional = false)
     @Column(name = "idvendas")
     private Integer idvendas;
+    @Column (name = "dataVenda")
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date dataVenda; 
 
     @ManyToOne
     private Produtos produto; 
@@ -99,6 +102,18 @@ public class Vendas implements Serializable {
         Clientes oldCliente = this.cliente;
         this.cliente= cliente;
         changeSupport.firePropertyChange("cliente", oldCliente, cliente);
+        
+        
+    }
+
+    public Date getDataVenda() {
+        return dataVenda;
+    }
+
+    public void setDataVenda(Date dataVenda) {
+        Date oldDate = this.dataVenda;
+        this.dataVenda = dataVenda;
+        changeSupport.firePropertyChange("dataVenda", oldDate, dataVenda);
     }
 
     
