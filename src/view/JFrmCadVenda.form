@@ -100,17 +100,19 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
-                  <Component id="masterScrollPane" alignment="1" pref="464" max="32767" attributes="0"/>
-                  <Group type="102" attributes="0">
+                  <Component id="masterScrollPane" alignment="1" pref="660" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
                       <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="114" max="-2" attributes="0"/>
                       <Component id="newButton" linkSize="1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                       <Component id="deleteButton" linkSize="1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="refreshButton" linkSize="1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="saveButton" linkSize="1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="dateCellRender1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -124,16 +126,17 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="masterScrollPane" min="-2" pref="100" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="masterScrollPane" pref="134" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="newButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="deleteButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="refreshButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="saveButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="dateCellRender1" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="27" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -168,7 +171,9 @@
                 <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                   <Title/>
                   <Editor/>
-                  <Renderer/>
+                  <Renderer editor="org.netbeans.modules.form.ComponentChooserEditor">
+                    <ComponentRef name="dateCellRender1"/>
+                  </Renderer>
                 </Column>
               </TableColumnModel>
             </Property>
@@ -297,7 +302,7 @@
                               <Component id="idvendasLabel" min="-2" max="-2" attributes="0"/>
                               <Component id="clientesIdclientesLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jFormattedTextField1" alignment="0" min="-2" pref="166" max="-2" attributes="0"/>
-                              <Component id="dataVenda_label" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="dataVenda_label1" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
@@ -321,11 +326,11 @@
                   <Component id="clientesIdclientesLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jComboBox2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="11" max="32767" attributes="0"/>
-                  <Component id="dataVenda_label" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="dataVenda_label1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jFormattedTextField1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace pref="29" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -396,7 +401,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jFormattedTextField1ActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="dataVenda_label">
+        <Component class="javax.swing.JLabel" name="dataVenda_label1">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="0"/>
@@ -406,5 +411,10 @@
         </Component>
       </SubComponents>
     </Container>
+    <Component class="render.DateCellRender" name="dateCellRender1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="dateCellRender1"/>
+      </Properties>
+    </Component>
   </SubComponents>
 </Form>

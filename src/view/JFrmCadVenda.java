@@ -63,7 +63,8 @@ public class JFrmCadVenda extends JPanel {
         produtosidProdutosLabel = new javax.swing.JLabel();
         clientesIdclientesLabel = new javax.swing.JLabel();
         jFormattedTextField1 = new javax.swing.JFormattedTextField();
-        dataVenda_label = new javax.swing.JLabel();
+        dataVenda_label1 = new javax.swing.JLabel();
+        dateCellRender1 = new render.DateCellRender();
 
         FormListener formListener = new FormListener();
 
@@ -86,6 +87,9 @@ public class JFrmCadVenda extends JPanel {
         bindingGroup.addBinding(jTableBinding);
         jTableBinding.bind();
         masterScrollPane.setViewportView(masterTable);
+        if (masterTable.getColumnModel().getColumnCount() > 0) {
+            masterTable.getColumnModel().getColumn(3).setCellRenderer(dateCellRender1);
+        }
 
         saveButton.setBackground(new java.awt.Color(0, 128, 120));
         saveButton.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
@@ -148,8 +152,8 @@ public class JFrmCadVenda extends JPanel {
 
         jFormattedTextField1.addActionListener(formListener);
 
-        dataVenda_label.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        dataVenda_label.setText("Data da Venda");
+        dataVenda_label1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        dataVenda_label1.setText("Data da Venda");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -167,7 +171,7 @@ public class JFrmCadVenda extends JPanel {
                             .addComponent(idvendasLabel)
                             .addComponent(clientesIdclientesLabel)
                             .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(dataVenda_label))
+                            .addComponent(dataVenda_label1))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -186,12 +190,14 @@ public class JFrmCadVenda extends JPanel {
                 .addComponent(clientesIdclientesLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
-                .addComponent(dataVenda_label)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(dataVenda_label1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(29, Short.MAX_VALUE))
         );
+
+        dateCellRender1.setText("dateCellRender1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -201,17 +207,19 @@ public class JFrmCadVenda extends JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(masterScrollPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 464, Short.MAX_VALUE)
+                    .addComponent(masterScrollPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 660, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jButton1)
-                        .addGap(45, 45, 45)
+                        .addGap(114, 114, 114)
                         .addComponent(newButton)
-                        .addGap(18, 18, 18)
+                        .addGap(29, 29, 29)
                         .addComponent(deleteButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(refreshButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(saveButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(dateCellRender1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -224,15 +232,16 @@ public class JFrmCadVenda extends JPanel {
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(masterScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(masterScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
+                .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(newButton)
                     .addComponent(deleteButton)
                     .addComponent(refreshButton)
-                    .addComponent(saveButton))
-                .addContainerGap(27, Short.MAX_VALUE))
+                    .addComponent(saveButton)
+                    .addComponent(dateCellRender1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         bindingGroup.bind();
@@ -339,7 +348,8 @@ public class JFrmCadVenda extends JPanel {
     private javax.persistence.Query QueryCliente;
     private javax.persistence.Query QueryProduto;
     private javax.swing.JLabel clientesIdclientesLabel;
-    private javax.swing.JLabel dataVenda_label;
+    private javax.swing.JLabel dataVenda_label1;
+    private render.DateCellRender dateCellRender1;
     private javax.swing.JButton deleteButton;
     private javax.persistence.EntityManager entityManager;
     private javax.swing.JTextField idvendasField;

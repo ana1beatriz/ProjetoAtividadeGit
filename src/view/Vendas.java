@@ -42,6 +42,9 @@ public class Vendas implements Serializable {
     @Column (name = "dataVenda")
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date dataVenda; 
+//    @Column (name = "horaVenda")
+//    @Temporal(javax.persistence.TemporalType.DATE)
+//    private Date horaVenda; 
 
     @ManyToOne
     private Produtos produto; 
@@ -115,6 +118,16 @@ public class Vendas implements Serializable {
         this.dataVenda = dataVenda;
         changeSupport.firePropertyChange("dataVenda", oldDate, dataVenda);
     }
+
+//    public Date getHoraVenda() {
+//        return horaVenda;
+//    }
+//
+//    public void setHoraVenda(Date horaVenda) {
+//        Date oldDate = this.horaVenda;
+//        this.horaVenda = horaVenda;
+//        changeSupport.firePropertyChange("horaVenda", oldDate, horaVenda);
+//    }
 
     
 
