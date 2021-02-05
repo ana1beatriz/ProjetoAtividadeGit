@@ -25,10 +25,10 @@ public class JFrmSplash extends javax.swing.JFrame {
     public JFrmSplash() {
         initComponents();
         
-        timer = new Timer(100, new ActionListener() {
+        timer = new Timer(50, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-              jProgressBar1.setValue(jProgressBar1.getValue() + 1);
+              jProgressBar1.setValue(jProgressBar1.getValue() + 3);
               if(jProgressBar1.getValue() >= 100){
                   timer.stop();
                   JFrmLogin.main(null);
