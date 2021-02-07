@@ -296,6 +296,7 @@ public class JFrmCadCliente extends JPanel {
         try {
             JasperPrint relatorio = JasperFillManager.fillReport("./relatorios/relatorioWizard.jasper", null, dados);
             JasperViewer visualizador = new JasperViewer(relatorio, false);
+            visualizador.setVisible(true);
         } catch (JRException ex) {
             Logger.getLogger(JFrmCadCliente.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -9,6 +9,7 @@ import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -29,6 +30,8 @@ import javax.persistence.Transient;
 @Entity
 @Table(name = "clientes", catalog = "papelaria", schema = "")
 public class Clientes implements Serializable {
+
+   
 
     @Transient
     private PropertyChangeSupport changeSupport = new PropertyChangeSupport(this);
