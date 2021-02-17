@@ -1,0 +1,14 @@
+Nota Bimestral 7.8
+
+Faltou definir a classe principal do programa (Splash)
+Quantidade em estoque não estava aparecendo após digitar o valor no campo de texto, pois o firePropertyChange da classe produto estava incorreto.
+Os botões não foram traduzidos para o português.
+Alguns rótulos (JLabels) não foram corrigidos, estão com o texto gerado pelo wizard do Netbeans.
+As imagens do relatório estavam com caminho absoluto do computador da pessoal que desenvolveu, isso faz com que o relaório não seja exibido no computador do cliente
+Relatório de clientes só com o número de CPF não faz sentido, não tem utilidade para o negócio.
+Relatórios dos formulários de cadastro não funcionam. Principalmente o de cadastro de produto (blank) que deveria ser de duas tabelas.
+Os itens clientes e vendas do menu relatórios não funcionam (não possui código)
+O Formulário de geração de relatório por parâmetro ao fechar termina o programa.
+O formulário de cadastro de usuário poderia ter o campo senha trocado para o tipo JPasswordField e esconder a coluna de senha
+
+

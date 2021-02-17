@@ -1,25 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="93f359cc-9bae-4552-865e-95f16d1533a6">
-	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.zoom" value="1.4641000000000006"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="1"/>
 	<queryString>
 		<![CDATA[SELECT
-
-     clientes.`cpf` AS cpf,
-     clientes.`nome` AS nome,
-     produtos.`nome` AS 'produtos.nome'
+     vendas.`dataVenda` AS dataVenda,
+     clientes.`nome` AS `cliente.nome`,
+     produtos.`nome` AS `produto.nome`,
+     vendas.`idvendas` AS idvendas
 FROM
-     `clientes` clientes,
-     `produtos` produtos]]>
+     `clientes` clientes INNER JOIN `vendas` vendas ON clientes.`idclientes` = vendas.`cliente_idclientes`
+     INNER JOIN `produtos` produtos ON vendas.`produto_idProdutos` = produtos.`idProdutos`]]>
 	</queryString>
-	<field name="cpf" class="java.lang.String">
+	<field name="dataVenda" class="java.sql.Date">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="nome" class="java.lang.String">
+	<field name="cliente.nome" class="java.lang.String"/>
+	<field name="produto.nome" class="java.lang.String"/>
+	<field name="idvendas" class="java.lang.Integer">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="produtos.nome" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -34,48 +35,48 @@ FROM
 			</staticText>
 			<image>
 				<reportElement x="435" y="11" width="120" height="56" uuid="a93d1539-4baf-4eb3-b5fe-c284be5daa13"/>
-				<imageExpression><![CDATA["C:\\Users\\Ana Beatriz\\Downloads\\report1.jpg"]]></imageExpression>
+				<imageExpression><![CDATA["banner.jpg"]]></imageExpression>
 			</image>
 		</band>
 	</title>
 	<columnHeader>
-		<band height="23" splitType="Stretch">
+		<band height="25" splitType="Stretch">
 			<staticText>
-				<reportElement x="0" y="3" width="100" height="20" uuid="d3cf4370-4a38-4518-bd89-31f419468424"/>
-				<textElement>
-					<font fontName="Arial" size="12"/>
-				</textElement>
-				<text><![CDATA[Cpf]]></text>
+				<reportElement x="3" y="2" width="79" height="20" uuid="6ae922e5-e264-4e9c-b3e2-ba5b650412ed"/>
+				<text><![CDATA[Código Venda]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="294" y="3" width="100" height="20" uuid="26643581-9c3f-4a09-a776-af025e783c7e"/>
-				<textElement>
-					<font fontName="Arial" size="12"/>
-				</textElement>
+				<reportElement x="82" y="2" width="100" height="20" uuid="1a1d3080-3f9f-4183-a2bd-243a34a73b51"/>
+				<text><![CDATA[Data da Venda]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="182" y="2" width="181" height="20" uuid="2ba5e9e1-4d62-47d9-ac46-91501d5efea0"/>
+				<text><![CDATA[Cliente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="363" y="2" width="192" height="20" uuid="65c6ca7b-4ee9-4cff-bca7-26eda7fe936a"/>
 				<text><![CDATA[Produto]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="127" y="3" width="100" height="20" uuid="1c73a9f0-7f7f-4032-a4cc-5ac40d547e6c"/>
-				<textElement>
-					<font fontName="Arial" size="12"/>
-				</textElement>
-				<text><![CDATA[Nome do Cliente]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="36" splitType="Stretch">
+		<band height="24" splitType="Stretch">
 			<textField>
-				<reportElement x="127" y="0" width="100" height="20" uuid="08f17f29-48a9-476d-89f9-b3fb0c8dc9dd"/>
-				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+				<reportElement x="0" y="0" width="82" height="20" uuid="1737d746-5cdd-4335-ac74-a984e15d153f"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{idvendas}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="82" y="0" width="100" height="20" uuid="72330221-d045-438a-b91a-2e14c9d88885"/>
+				<textFieldExpression><![CDATA[$F{dataVenda}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="0" y="0" width="100" height="20" uuid="89f69d4a-69b7-48b3-b863-2d4f5edfad60"/>
-				<textFieldExpression><![CDATA[$F{cpf}]]></textFieldExpression>
+				<reportElement x="363" y="0" width="192" height="20" uuid="5cddc3ed-9ee1-402b-835b-ede48bc42ad5"/>
+				<textFieldExpression><![CDATA[$F{produto.nome}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="294" y="3" width="100" height="20" uuid="08dfd140-de93-4b11-9b4a-7981abc5aab3"/>
-				<textFieldExpression><![CDATA[$F{produtos.nome}]]></textFieldExpression>
+				<reportElement x="182" y="0" width="181" height="20" uuid="b70d421e-f65f-486f-b023-a04acb520a22"/>
+				<textFieldExpression><![CDATA[$F{cliente.nome}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

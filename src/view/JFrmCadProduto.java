@@ -52,7 +52,6 @@ public class JFrmCadProduto extends JPanel {
         refreshButton = new javax.swing.JButton();
         newButton = new javax.swing.JButton();
         deleteButton = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         idProdutosField = new javax.swing.JTextField();
         quantidadeEmEstoqueField = new javax.swing.JTextField();
@@ -100,10 +99,6 @@ public class JFrmCadProduto extends JPanel {
         bindingGroup.addBinding(binding);
 
         deleteButton.addActionListener(formListener);
-
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
-        jButton1.setText("Relatório ");
-        jButton1.addActionListener(formListener);
 
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.idProdutos}"), idProdutosField, org.jdesktop.beansbinding.BeanProperty.create("text"));
         binding.setSourceUnreadableValue("null");
@@ -178,8 +173,7 @@ public class JFrmCadProduto extends JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(newButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(deleteButton)
@@ -206,8 +200,7 @@ public class JFrmCadProduto extends JPanel {
                     .addComponent(saveButton)
                     .addComponent(refreshButton)
                     .addComponent(deleteButton)
-                    .addComponent(newButton)
-                    .addComponent(jButton1))
+                    .addComponent(newButton))
                 .addContainerGap())
         );
 
@@ -219,10 +212,7 @@ public class JFrmCadProduto extends JPanel {
     private class FormListener implements java.awt.event.ActionListener {
         FormListener() {}
         public void actionPerformed(java.awt.event.ActionEvent evt) {
-            if (evt.getSource() == quantidadeEmEstoqueField) {
-                JFrmCadProduto.this.quantidadeEmEstoqueFieldActionPerformed(evt);
-            }
-            else if (evt.getSource() == saveButton) {
+            if (evt.getSource() == saveButton) {
                 JFrmCadProduto.this.saveButtonActionPerformed(evt);
             }
             else if (evt.getSource() == refreshButton) {
@@ -234,8 +224,8 @@ public class JFrmCadProduto extends JPanel {
             else if (evt.getSource() == deleteButton) {
                 JFrmCadProduto.this.deleteButtonActionPerformed(evt);
             }
-            else if (evt.getSource() == jButton1) {
-                JFrmCadProduto.this.jButton1ActionPerformed(evt);
+            else if (evt.getSource() == quantidadeEmEstoqueField) {
+                JFrmCadProduto.this.quantidadeEmEstoqueFieldActionPerformed(evt);
             }
         }
     }// </editor-fold>//GEN-END:initComponents
@@ -255,9 +245,9 @@ public class JFrmCadProduto extends JPanel {
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
         int[] selected = masterTable.getSelectedRows();
-        List<view.Produtos> toRemove = new ArrayList<view.Produtos>(selected.length);
+        List<model.Produtos> toRemove = new ArrayList<model.Produtos>(selected.length);
         for (int idx = 0; idx < selected.length; idx++) {
-            view.Produtos p = list.get(masterTable.convertRowIndexToModel(selected[idx]));
+            model.Produtos p = list.get(masterTable.convertRowIndexToModel(selected[idx]));
             toRemove.add(p);
             entityManager.remove(p);
         }
@@ -265,7 +255,7 @@ public class JFrmCadProduto extends JPanel {
     }//GEN-LAST:event_deleteButtonActionPerformed
 
     private void newButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newButtonActionPerformed
-        view.Produtos p = new view.Produtos();
+        model.Produtos p = new model.Produtos();
         entityManager.persist(p);
         list.add(p);
         int row = list.size() - 1;
@@ -280,25 +270,14 @@ public class JFrmCadProduto extends JPanel {
         } catch (RollbackException rex) {
             rex.printStackTrace();
             entityManager.getTransaction().begin();
-            List<view.Produtos> merged = new ArrayList<view.Produtos>(list.size());
-            for (view.Produtos p : list) {
+            List<model.Produtos> merged = new ArrayList<model.Produtos>(list.size());
+            for (model.Produtos p : list) {
                 merged.add(entityManager.merge(p));
             }
             list.clear();
             list.addAll(merged);
         }
     }//GEN-LAST:event_saveButtonActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-         JRBeanCollectionDataSource dados = new JRBeanCollectionDataSource(list, false);
-        try {
-            JasperPrint relatorio = JasperFillManager.fillReport("./relatorios/RelatorioBlank.jasper", null, dados);
-            JasperViewer visualizador = new JasperViewer(relatorio, false);
-        } catch (JRException ex) {
-            Logger.getLogger(JFrmCadCliente.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void quantidadeEmEstoqueFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quantidadeEmEstoqueFieldActionPerformed
         // TODO add your handling code here:
@@ -310,9 +289,8 @@ public class JFrmCadProduto extends JPanel {
     private javax.persistence.EntityManager entityManager;
     private javax.swing.JTextField idProdutosField;
     private javax.swing.JLabel idProdutosLabel;
-    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
-    private java.util.List<view.Produtos> list;
+    private java.util.List<model.Produtos> list;
     private javax.swing.JScrollPane masterScrollPane;
     private javax.swing.JTable masterTable;
     private javax.swing.JButton newButton;

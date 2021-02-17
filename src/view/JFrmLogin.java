@@ -5,6 +5,7 @@
  */
 package view;
 
+import model.Usuario;
 import javax.swing.JOptionPane;
 
 /**

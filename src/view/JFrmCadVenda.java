@@ -5,6 +5,8 @@
  */
 package view;
 
+import model.Clientes;
+import model.Produtos;
 import java.awt.EventQueue;
 import java.beans.Beans;
 import java.util.ArrayList;
@@ -77,10 +79,10 @@ public class JFrmCadVenda extends JPanel {
         columnBinding.setColumnClass(Integer.class);
         columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${cliente}"));
         columnBinding.setColumnName("Cliente");
-        columnBinding.setColumnClass(view.Clientes.class);
+        columnBinding.setColumnClass(model.Clientes.class);
         columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${produto}"));
         columnBinding.setColumnName("Produto");
-        columnBinding.setColumnClass(view.Produtos.class);
+        columnBinding.setColumnClass(model.Produtos.class);
         columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${dataVenda}"));
         columnBinding.setColumnName("Data Venda");
         columnBinding.setColumnClass(java.util.Date.class);
@@ -148,6 +150,8 @@ public class JFrmCadVenda extends JPanel {
         jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
 
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.dataVenda}"), jFormattedTextField1, org.jdesktop.beansbinding.BeanProperty.create("value"));
+        bindingGroup.addBinding(binding);
+        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement != null}"), jFormattedTextField1, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
         bindingGroup.addBinding(binding);
 
         jFormattedTextField1.addActionListener(formListener);
@@ -288,9 +292,9 @@ public class JFrmCadVenda extends JPanel {
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
         int[] selected = masterTable.getSelectedRows();
-        List<view.Vendas> toRemove = new ArrayList<view.Vendas>(selected.length);
+        List<model.Vendas> toRemove = new ArrayList<model.Vendas>(selected.length);
         for (int idx = 0; idx < selected.length; idx++) {
-            view.Vendas v = list.get(masterTable.convertRowIndexToModel(selected[idx]));
+            model.Vendas v = list.get(masterTable.convertRowIndexToModel(selected[idx]));
             toRemove.add(v);
             entityManager.remove(v);
         }
@@ -298,7 +302,7 @@ public class JFrmCadVenda extends JPanel {
     }//GEN-LAST:event_deleteButtonActionPerformed
 
     private void newButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newButtonActionPerformed
-        view.Vendas v = new view.Vendas();
+        model.Vendas v = new model.Vendas();
         entityManager.persist(v);
         list.add(v);
         int row = list.size() - 1;
@@ -313,8 +317,8 @@ public class JFrmCadVenda extends JPanel {
         } catch (RollbackException rex) {
             rex.printStackTrace();
             entityManager.getTransaction().begin();
-            List<view.Vendas> merged = new ArrayList<view.Vendas>(list.size());
-            for (view.Vendas v : list) {
+            List<model.Vendas> merged = new ArrayList<model.Vendas>(list.size());
+            for (model.Vendas v : list) {
                 merged.add(entityManager.merge(v));
             }
             list.clear();
@@ -359,7 +363,7 @@ public class JFrmCadVenda extends JPanel {
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JPanel jPanel1;
-    private java.util.List<view.Vendas> list;
+    private java.util.List<model.Vendas> list;
     private javax.swing.JScrollPane masterScrollPane;
     private javax.swing.JTable masterTable;
     private javax.swing.JButton newButton;

@@ -27,7 +27,7 @@
         <Property name="observable" type="boolean" value="true"/>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;view.Vendas&gt;"/>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;model.Vendas&gt;"/>
         <AuxValue name="JavaCodeGenerator_VariableLocal" type="java.lang.Boolean" value="false"/>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="2"/>
       </AuxValues>
@@ -189,11 +189,11 @@
               </Subbinding>
               <Subbinding sourcePath="${cliente}">
                 <BindingParameter name="NAME" value="Cliente"/>
-                <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="view.Clientes.class"/>
+                <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="model.Clientes.class"/>
               </Subbinding>
               <Subbinding sourcePath="${produto}">
                 <BindingParameter name="NAME" value="Produto"/>
-                <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="view.Produtos.class"/>
+                <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="model.Produtos.class"/>
               </Subbinding>
               <Subbinding sourcePath="${dataVenda}">
                 <BindingParameter name="NAME" value="Data Venda"/>
@@ -396,6 +396,7 @@
           </Properties>
           <BindingProperties>
             <BindingProperty name="value" source="masterTable" sourcePath="${selectedElement.dataVenda}" target="jFormattedTextField1" targetPath="value" updateStrategy="0" immediately="false"/>
+            <BindingProperty name="enabled" source="masterTable" sourcePath="${selectedElement != null}" target="jFormattedTextField1" targetPath="enabled" updateStrategy="0" immediately="false"/>
           </BindingProperties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jFormattedTextField1ActionPerformed"/>

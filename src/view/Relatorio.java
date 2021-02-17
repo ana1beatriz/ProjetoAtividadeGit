@@ -50,7 +50,7 @@ public class Relatorio extends javax.swing.JFrame {
 
         jScrollPane1.setViewportView(jTree1);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Relatórios");
 
         jLabel1.setText("Nome do produto");
@@ -112,7 +112,8 @@ public class Relatorio extends javax.swing.JFrame {
                 .addContainerGap(30, Short.MAX_VALUE))
         );
 
-        pack();
+        setSize(new java.awt.Dimension(437, 223));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txt_nomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nomeActionPerformed

@@ -56,9 +56,9 @@ where nome like $P{nome}]]>
 					<text><![CDATA[Papelaria Winners]]></text>
 				</staticText>
 			</frame>
-			<image>
-				<reportElement x="406" y="0" width="400" height="95" uuid="0e595548-f8de-4d76-adaf-3e601577659e"/>
-				<imageExpression><![CDATA["C:\\Users\\Ana Beatriz\\Documents\\NetBeansProjects\\ProjetoAtividadeGitClone1\\Relatorios\\banner.jpg"]]></imageExpression>
+			<image scaleImage="FillFrame">
+				<reportElement x="406" y="0" width="149" height="95" uuid="0e595548-f8de-4d76-adaf-3e601577659e"/>
+				<imageExpression><![CDATA["banner.jpg"]]></imageExpression>
 			</image>
 		</band>
 	</title>

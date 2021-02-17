@@ -67,7 +67,7 @@ FROM
 			</staticText>
 			<image>
 				<reportElement x="393" y="0" width="142" height="57" uuid="70e86b39-ddfc-4f53-a15b-5fdfacf378a1"/>
-				<imageExpression><![CDATA["C:\\Users\\Ana Beatriz\\Documents\\NetBeansProjects\\ProjetoAtividadeGitClone1\\Relatorios\\banner.jpg"]]></imageExpression>
+				<imageExpression><![CDATA["banner.jpg"]]></imageExpression>
 			</image>
 		</band>
 	</title>

@@ -254,9 +254,9 @@ public class JFrmCadCliente extends JPanel {
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
         int[] selected = masterTable.getSelectedRows();
-        List<view.Clientes> toRemove = new ArrayList<view.Clientes>(selected.length);
+        List<model.Clientes> toRemove = new ArrayList<model.Clientes>(selected.length);
         for (int idx = 0; idx < selected.length; idx++) {
-            view.Clientes c = list.get(masterTable.convertRowIndexToModel(selected[idx]));
+            model.Clientes c = list.get(masterTable.convertRowIndexToModel(selected[idx]));
             toRemove.add(c);
             entityManager.remove(c);
         }
@@ -264,7 +264,7 @@ public class JFrmCadCliente extends JPanel {
     }//GEN-LAST:event_deleteButtonActionPerformed
 
     private void newButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newButtonActionPerformed
-        view.Clientes c = new view.Clientes();
+        model.Clientes c = new model.Clientes();
         entityManager.persist(c);
         list.add(c);
         int row = list.size() - 1;
@@ -279,8 +279,8 @@ public class JFrmCadCliente extends JPanel {
         } catch (RollbackException rex) {
             rex.printStackTrace();
             entityManager.getTransaction().begin();
-            List<view.Clientes> merged = new ArrayList<view.Clientes>(list.size());
-            for (view.Clientes c : list) {
+            List<model.Clientes> merged = new ArrayList<model.Clientes>(list.size());
+            for (model.Clientes c : list) {
                 merged.add(entityManager.merge(c));
             }
             list.clear();
@@ -313,7 +313,7 @@ public class JFrmCadCliente extends JPanel {
     private javax.swing.JLabel idclientesLabel;
     private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
-    private java.util.List<view.Clientes> list;
+    private java.util.List<model.Clientes> list;
     private javax.swing.JScrollPane masterScrollPane;
     private javax.swing.JTable masterTable;
     private javax.swing.JButton newButton;
